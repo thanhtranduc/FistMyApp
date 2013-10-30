@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#eeeeee</color>
+    <color name="tvLauchFirstHeader">#a46e00</color>
+    <color name="tvLauchSecondHeader">#774f00</color>
+    <color name="tvLauchBottom">#885b00</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#B5B5B5</color>
+    <color name="feed_colortext_listfeeds">#333333</color>
+    <color name="feed_colortext_like">#777777</color>
+    <color name="sidebar_colortext_mystation">#333333</color>
+    <color name="sidebar_colortext_mystationcomposer">#434343</color>
+    <color name="program_textcolor_composer">#333333</color>
+    <color name="program_textcolor_title">#333333</color>
+    <color name="program_textcolor_contentlook">#777777</color>
+    <color name="program_textcolor_contentPlay">#777777</color>
+    <color name="program_textcolor_contentLike">#777777</color>
+    <color name="program_textcolor_comment">#777777</color>
+    <color name="profile_textcolor">#000000</color>
+
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fl_background"
+                android:clickable="false">
+
+
+    <Button
+            android:layout_width="@dimen/btLauchWidth"
+            android:layout_height="@dimen/btLauchHeight"
+            android:id="@+id/btLogin"
+            android:background="@drawable/fl_btn_login"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/tvLauchBottom" android:clickable="true"/>
+    <Button android:layout_width="@dimen/btLauchWidth"
+            android:layout_height="@dimen/btLauchHeight"
+            android:id="@+id/btLoginFB"
+            android:background="@drawable/fl_btn_loginfb"
+            android:layout_toLeftOf="@id/btLogin" android:layout_alignTop="@+id/btLogin"
+            android:layout_marginRight="20dp"/>
+    <Button android:layout_width="@dimen/btLauchWidth"
+            android:layout_height="@dimen/btLauchHeight"
+            android:id="@+id/btSignUp"
+            android:background="@drawable/fl_btn_signup"
+            android:layout_toRightOf="@id/btLogin"
+            android:layout_alignTop="@id/btLogin"
+            android:layout_marginLeft="20dp"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvLauchFirstHeader"
+            android:gravity="center"
+            android:textColor="@color/tvLauchFirstHeader"
+            android:id="@+id/tvLauchFirstHeader" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp" android:layout_alignParentRight="true" android:typeface="normal"
+            android:textSize="14dp"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvLauchSecondHeader"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/tvLauchSecondHeader"
+            android:id="@+id/tvLauchSecondHeader" android:layout_alignLeft="@+id/tvLauchFirstHeader"
+            android:layout_below="@+id/tvLauchFirstHeader"
+            android:layout_alignRight="@+id/tvLauchFirstHeader" android:typeface="normal"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvLauchBottom"
+            android:id="@+id/tvLauchBottom"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:typeface="sans"
+            android:textColor="@color/tvLauchBottom"
+            android:layout_alignLeft="@+id/tvLauchBottom" android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/tvLauchBottom" android:layout_marginTop="10dp"/>
+</RelativeLayout>

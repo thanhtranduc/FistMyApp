@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true">
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/navbar"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" android:id="@+id/relativeLayout">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ibNewCommentCancel"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/addcomment_buttoncancel"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentTop="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comment"
+                    android:layout_centerInParent="true"
+                    android:textSize="20dp"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/tvNewCommentTitle"
+                    android:layout_centerHorizontal="true" android:textStyle="bold"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/addcomment_buttonpost"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/ibNewCommentPost" android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="add new comment"
+                android:background="@drawable/addcomment_imagebgrcomment"
+                android:gravity="top"
+                android:padding="5dp"
+                android:id="@+id/etAddNewComment" android:layout_alignLeft="@+id/relativeLayout"
+                android:layout_below="@+id/relativeLayout" android:layout_alignRight="@+id/relativeLayout"
+                android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</RelativeLayout>

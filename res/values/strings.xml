@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OnlineDio</string>
+    <string name="note">
+        <u>
+            <b>I forgot my password.</b>
+        </u>
+    </string>
+    <string name="tvHome">HOME</string>
+    <string name="tvContentFeed">content feeds</string>
+    <string name="tvLauchFirstHeader">ONE PICTURE SAYS A THOUSAND WORD</string>
+    <string name="tvLauchSecondHeader">WHAT IF ONE CLIP CAN SAY YOU</string>
+    <string name="tvLauchBottom">By joining OnlineDio you agree to the
+        <b>Terms of Service</b>
+        and
+        <b>Privacy Policy</b>
+    </string>
+    <string name="Profile">
+        <b>Profile</b>
+    </string>
+    <string name="accInformation">
+        <b>Account Information</b>
+    </string>
+    <string name="displayName">
+        <b>Display name</b>
+    </string>
+    <string name="fullName">
+        <b>Full name</b>
+    </string>
+    <string name="phone">
+        <b>Phone no.</b>
+    </string>
+    <string name="birthday">
+        <b>Birthday</b>
+    </string>
+    <string name="gender">
+        <b>Gender</b>
+    </string>
+
+    <string name="country">
+        <b>Country</b>
+    </string>
+    <string name="description">
+        <b>Description</b>
+    </string>
+    <string name="tvProgram">Program</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="tvMyStation">My Station</string>
+    <string name="tvMyStationComposer">Composer</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_yourCountry">Your country</string>
+    <string name="contentDescription">content description</string>
+    <string name="hint_birthday">Your birthday</string>
+    <string name="hint_phone">Your phone no.</string>
+    <string name="hint_name">Your full name</string>
+    <string name="hint_display_name">Your display name</string>
+
+    <string name="tvProfileSetup">Profile Setup</string>
+    <string name="edit_text">first text</string>
+
+</resources>

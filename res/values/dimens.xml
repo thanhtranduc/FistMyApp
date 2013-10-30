@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tvHome">25dp</dimen>
+    <dimen name="btLauchWidth">80dp</dimen>
+    <dimen name="btLauchHeight">50dp</dimen>
+    <dimen name="btLauchMarginTop">380dp</dimen>
+    <dimen name="feed_size_avatar">50dp</dimen>
+    <dimen name="feed_margin_avatar">5dp</dimen>
+    <dimen name="feed_textsize_title">16dp</dimen>
+    <dimen name="feed_textsize_composer">14dp</dimen>
+    <dimen name="feed_textsize_lastUpdate">12dp</dimen>
+    <dimen name="feed_textsize_like_comment">12dp</dimen>
+    <dimen name="tvProfileSetup">25dp</dimen>
+
+    <dimen name="sidebar_width">240dp</dimen>
+</resources>

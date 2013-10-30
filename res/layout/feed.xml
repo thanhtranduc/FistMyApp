@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@drawable/sidebar_selection"
+                android:padding="5dp"
+                android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="@dimen/feed_size_avatar"
+            android:layout_height="@dimen/feed_size_avatar"
+            android:background="@drawable/image_icon"
+            android:id="@+id/imProfile" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/feed_margin_avatar"/>
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imProfile"
+            android:layout_alignTop="@+id/imProfile"
+            android:layout_alignBottom="@+id/imProfile"
+            android:id="@+id/relativeLayout">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textStyle="bold"
+                android:textColor="@color/feed_colortext_listfeeds"
+                android:id="@+id/tvTitleFeed" android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+                android:textSize="@dimen/feed_textsize_title"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="composer"
+                android:textColor="@color/feed_colortext_listfeeds"
+                android:id="@+id/tvComposer" android:layout_alignLeft="@+id/tvTitleFeed"
+                android:layout_centerVertical="true" android:layout_alignRight="@+id/tvTitleFeed"
+                android:textSize="@dimen/feed_textsize_composer"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Like"
+                android:textColor="@color/feed_colortext_like"
+                android:id="@+id/tvLike" android:layout_alignLeft="@+id/tvTitleFeed"
+                android:layout_below="@+id/tvComposer" android:textSize="@dimen/feed_textsize_like_comment"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment"
+                android:textColor="@color/feed_colortext_like"
+                android:id="@+id/tvComment"
+                android:textSize="@dimen/feed_textsize_like_comment" android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tvComposer"/>
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                   android:background="@drawable/arrows"
+                   android:id="@+id/imageView"
+                   android:layout_alignRight="@+id/tvTitleFeed"
+                   android:layout_alignTop="@+id/tvComposer"
+                   android:layout_marginRight="5dp" android:layout_marginTop="2dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Text"
+                  android:id="@+id/tvLastUpdateStatus"
+                  android:textSize="@dimen/feed_textsize_lastUpdate"
+                  android:layout_toLeftOf="@+id/imageView" android:layout_alignTop="@+id/tvComposer"
+                  android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+</RelativeLayout>

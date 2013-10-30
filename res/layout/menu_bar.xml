@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:dividerHeight="0dp"
+            android:divider="@android:color/background_dark"
+            android:id="@+id/left_drawer">
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sidebar_image_button_search"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" android:id="@+id/relativeLayout">
+            <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/editText"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:layout_marginLeft="45dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/relativeLayout"
+                android:background="@android:color/white"
+                android:layout_below="@+id/relativeLayout" android:id="@+id/rlMyStation">
+            <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/content_icon_comment"
+                    android:id="@+id/imageView" android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true" android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp" android:layout_marginBottom="2dp" android:layout_marginRight="5dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="130dp"
+                    android:layout_height="fill_parent" android:layout_toRightOf="@+id/imageView"
+                    android:layout_alignBottom="@+id/imageView" android:id="@+id/linearLayout"
+                    >
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tvMyStation"
+                        android:textStyle="bold"
+                        android:textColor="@color/sidebar_colortext_mystation"
+                        android:id="@+id/tvMyStation" android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="5dp" android:textSize="14dp" android:layout_marginTop="5dp"/>
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tvMyStationComposer"
+                        android:id="@+id/tvMyStationComposer"
+                        android:textColor="@color/sidebar_colortext_mystationcomposer"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="5dp" android:textSize="10dp"/>
+            </LinearLayout>
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:layout_toRightOf="@+id/linearLayout"
+                    android:layout_alignTop="@+id/imageView"
+                    android:layout_margin="5dp">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ivMyStation"
+                        android:background="@drawable/sidebar_image_mystation"
+                        android:layout_alignParentLeft="true" android:layout_centerInParent="true"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ivArrows"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/arrows"
+                        android:layout_alignTop="@+id/ivMyStation"
+                        android:adjustViewBounds="false" android:layout_centerInParent="true"
+                        android:layout_marginTop="2dp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlMyStation"
+                android:id="@+id/rlMenu">
+            <!--android:background="@drawable/toolbar"-->
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Menu"
+                    android:id="@+id/textView"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:textStyle="bold" android:layout_marginLeft="10dp" android:textSize="16dp"
+                    />
+        </RelativeLayout>
+        <ListView
+                android:id="@+id/lvSlideBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:choiceMode="singleChoice"
+                android:background="@android:color/white"
+                android:layout_below="@id/rlMenu"
+                android:layout_alignRight="@id/rlMenu"
+                android:layout_alignLeft="@id/rlMenu" android:smoothScrollbar="true"/>
+    </RelativeLayout>
+</LinearLayout>
