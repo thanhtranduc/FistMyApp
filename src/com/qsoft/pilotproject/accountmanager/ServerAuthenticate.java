@@ -7,5 +7,6 @@ package com.qsoft.pilotproject.accountmanager;
  */
 public interface ServerAuthenticate
 {
-    public User userSignIn(final String user, final String pass, String authType) throws Exception;
+    public String userSignIn(final String user, final String pass, String authType) throws Exception;
+
 }

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 import com.qsoft.pilotproject.adapter.ArrayFeedAdapter;
 import com.qsoft.pilotproject.adapter.CommentAdapter;
 import com.qsoft.pilotproject.adapter.SideBarItemAdapter;

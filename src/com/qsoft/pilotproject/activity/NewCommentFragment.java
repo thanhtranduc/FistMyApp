@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 import com.qsoft.pilotproject.model.Comment;
 
 /**

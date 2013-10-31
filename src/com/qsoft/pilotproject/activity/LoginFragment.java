@@ -1,5 +1,6 @@
 package com.qsoft.pilotproject.activity;
 
+import android.accounts.*;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,9 +8,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,7 +20,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.PilotProject.R;
+import android.widget.Toast;
+import com.qsoft.pilotproject.R;
+import com.qsoft.pilotproject.accountmanager.AccountGeneral;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -27,12 +32,14 @@ import org.apache.http.params.HttpParams;
 
 import java.io.IOException;
 
+import static com.qsoft.pilotproject.accountmanager.AccountGeneral.sServerAuthenticate;
+
 /**
  * User: thanhtd
  * Date: 10/14/13
  * Time: 2:34 PM
  */
-public class LoginFragment extends FragmentActivity
+public class LoginFragment extends AccountAuthenticatorActivity
 {
     private static final String TAG = "LoginActivity";
     private ImageView imDone;
@@ -43,11 +50,37 @@ public class LoginFragment extends FragmentActivity
     final String EMAIL_PATTERN =
             "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    public final static String ARG_ACCOUNT_TYPE = "ACCOUNT_TYPE";
+    public final static String ARG_AUTH_TYPE = "AUTH_TYPE";
+    public final static String ARG_ACCOUNT_NAME = "ACCOUNT_NAME";
+    public final static String ARG_IS_ADDING_NEW_ACCOUNT = "IS_ADDING_ACCOUNT";
+
+    public static final String KEY_ERROR_MESSAGE = "ERR_MSG";
+
+    public final static String PARAM_USER_PASS = "USER_PASS";
+
+    private final int REQ_SIGNUP = 1;
+
+//    private final String TAG = this.getClass().getSimpleName();
+
+    private AccountManager mAccountManager;
+    private String mAuthTokenType;
 
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        mAccountManager = AccountManager.get(getBaseContext());
+
+        String accountName = getIntent().getStringExtra(ARG_ACCOUNT_NAME);
+        mAuthTokenType = getIntent().getStringExtra(ARG_AUTH_TYPE);
+        if (mAuthTokenType == null)
+            mAuthTokenType = AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS;
+
+        if (accountName != null) {
+            ((TextView)findViewById(R.id.login_etMail)).setText(accountName);
+        }
+
         imBack = (ImageView) findViewById(R.id.login_ivBack);
         imDone = (ImageView) findViewById(R.id.login_ivLogin);
         imBack.setOnClickListener(btBackClickListener);
@@ -100,12 +133,94 @@ public class LoginFragment extends FragmentActivity
         {
             if (isOnlineNetwork() && validateMailAndPassword(mail, password))
             {
-                Intent intent = new Intent(LoginFragment.this, HomeFragment.class);
-                startActivity(intent);
-                Log.d(TAG, "Login successfully");
+                submit();
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        // The sign up activity returned that the user has successfully created an account
+        if (requestCode == REQ_SIGNUP && resultCode == RESULT_OK) {
+            finishLogin(data);
+        } else
+            super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void submit() {
+
+        final String userName = ((TextView) findViewById(R.id.login_etMail)).getText().toString();
+        final String userPass = ((TextView) findViewById(R.id.login_etPassword)).getText().toString();
+
+        final String accountType = getIntent().getStringExtra(ARG_ACCOUNT_TYPE);
+
+        new AsyncTask<String, Void, Intent>() {
+
+            @Override
+            protected Intent doInBackground(String... params) {
+
+                Log.d("udinic", TAG + "> Started authenticating");
+
+                String authtoken = null;
+                Bundle data = new Bundle();
+                try {
+                    authtoken = sServerAuthenticate.userSignIn(userName, userPass, mAuthTokenType);
+
+                    data.putString(AccountManager.KEY_ACCOUNT_NAME, userName);
+                    data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
+                    data.putString(AccountManager.KEY_AUTHTOKEN, authtoken);
+                    data.putString(PARAM_USER_PASS, userPass);
+
+                } catch (Exception e) {
+                    data.putString(KEY_ERROR_MESSAGE, e.getMessage());
+                }
+
+                final Intent res = new Intent();
+                res.putExtras(data);
+                return res;
+            }
+
+            @Override
+            protected void onPostExecute(Intent intent) {
+                if (intent.hasExtra(KEY_ERROR_MESSAGE)) {
+                    Toast.makeText(getBaseContext(), intent.getStringExtra(KEY_ERROR_MESSAGE), Toast.LENGTH_SHORT).show();
+                } else {
+                    finishLogin(intent);
+
+                }
+            }
+        }.execute();
+    }
+
+    private void finishLogin(Intent intent) {
+        Log.d("udinic", TAG + "> finishLogin");
+
+        String accountName = intent.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+        String accountPassword = intent.getStringExtra(PARAM_USER_PASS);
+        final Account account = new Account(accountName, intent.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE));
+
+        if (getIntent().getBooleanExtra(ARG_IS_ADDING_NEW_ACCOUNT, false)) {
+            Log.d("udinic", TAG + "> finishLogin > addAccountExplicitly");
+            String authtoken = intent.getStringExtra(AccountManager.KEY_AUTHTOKEN);
+            String authtokenType = mAuthTokenType;
+
+            // Creating the account on the device and setting the auth token we got
+            // (Not setting the auth token will cause another call to the server to authenticate the user)
+            mAccountManager.addAccountExplicitly(account, accountPassword, null);
+            mAccountManager.setAuthToken(account, authtokenType, authtoken);
+        } else {
+            Log.d("udinic", TAG + "> finishLogin > setPassword");
+            mAccountManager.setPassword(account, accountPassword);
+        }
+
+        setAccountAuthenticatorResult(intent.getExtras());
+        setResult(RESULT_OK, intent);
+        finish();
+        intent = new Intent(LoginFragment.this, HomeFragment.class);
+        startActivity(intent);
+        Log.d(TAG, "Login successfully");
+    }
 
     View.OnClickListener btForgotPassListener = new View.OnClickListener()
     {

@@ -1,6 +1,6 @@
 package com.qsoft.pilotproject.utils;
 
-import com.qsoft.pilotproject.accountmanager.ParseComServer;
+import com.qsoft.pilotproject.accountmanager.ParseComServerAuthenticate;
 import com.qsoft.pilotproject.accountmanager.ServerAuthenticate;
 
 public class Common
@@ -12,7 +12,7 @@ public class Common
     public final static String ARG_IS_ADDING_NEW_ACCOUNT = "IS_ADDING_ACCOUNT";
     public static final String KEY_ERROR_MESSAGE = "ERR_MSG";
     public final static String PARAM_USER_PASS = "USER_PASS";
-    public static final ServerAuthenticate sServerAuthenticate = new ParseComServer();
+    public static final ServerAuthenticate sServerAuthenticate = new ParseComServerAuthenticate();
 
     public static final String USERDATA_USER_OBJ_ID = "userObjectId";   //Parse.com object id
     public static final String AUTHTOKEN_TYPE_READ_ONLY = "Read only";

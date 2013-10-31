@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 import com.qsoft.pilotproject.adapter.CommentAdapter;
 import com.qsoft.pilotproject.model.Comment;
 

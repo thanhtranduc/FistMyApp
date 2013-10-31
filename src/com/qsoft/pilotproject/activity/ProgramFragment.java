@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioGroup;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 import com.qsoft.pilotproject.adapter.SideBarItemAdapter;
 import com.qsoft.pilotproject.model.ProgramTab;
 

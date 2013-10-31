@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 import com.qsoft.pilotproject.utils.Utilities;
 
 import java.io.File;

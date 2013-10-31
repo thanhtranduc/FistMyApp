@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 
 /**
  * User: binhtv

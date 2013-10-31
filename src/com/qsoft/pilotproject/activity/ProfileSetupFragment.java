@@ -17,7 +17,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.*;
-import com.example.PilotProject.R;
+import com.qsoft.pilotproject.R;
 
 /**
  * User: thanhtd
