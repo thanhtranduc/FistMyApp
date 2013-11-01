@@ -37,6 +37,11 @@
             <meta-data android:name="android.accounts.AccountAuthenticator"
                        android:resource="@xml/authenticator" />
         </service>
+        <provider
+            android:authorities="com.qsoft.pilotproject.data.DataProvider"
+            android:multiprocess="true"
+            android:name="com.qsoft.pilotproject.data.DataProvider">
+        </provider>
 
     </application>
 </manifest> 
